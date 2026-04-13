@@ -9,8 +9,11 @@ Works with **Claude Code, Cursor, Codex, Windsurf, Cline, Amp**, and [40+ other 
 ## Prerequisites
 
 1. **Audn.ai account** — [sign up free](https://audn.ai)
-2. **API token** — generate at [audn.ai/dashboard/settings](https://audn.ai/dashboard/settings)
-3. Set your token:
+2. **Authenticate** (choose one):
+
+   **Claude Code (OAuth — recommended):** Authentication is automatic. After installing, run `/mcp` in Claude Code, select `audn-redteam`, and log in via browser. Tokens are stored securely in your system keychain.
+
+   **Other agents (API token):** Generate a token at [audn.ai/dashboard/settings](https://audn.ai/dashboard/settings), then:
    ```bash
    export AUDN_API_TOKEN="your-bearer-token"
    ```
@@ -27,6 +30,10 @@ npx skills add audn-ai/skills --skill audn-red -a claude-code
 Then in Claude Code:
 
 ```
+# Authenticate (first time only — opens browser)
+/audn-login
+
+# Run a red-team audit
 /audn-red https://api.openai.com/v1/chat/completions
 ```
 
@@ -52,6 +59,14 @@ claude --plugin-dir ./  # from this repo
 ```
 
 ## Skills
+
+### `audn-login` — Authenticate with Audn.ai
+
+Set up authentication. On Claude Code, triggers OAuth browser login via the bundled MCP server. On other agents, guides API token setup.
+
+```
+/audn-login
+```
 
 ### `audn-red` — Full Red-Team Audit
 
@@ -135,10 +150,10 @@ These skills orchestrate the [Audn.ai API](https://audn.ai/docs/api):
 
 ## Also Works As a Claude Code Plugin
 
-This repo doubles as a Claude Code plugin:
+This repo doubles as a Claude Code plugin with a **bundled MCP server** that handles OAuth login automatically:
 
 ```bash
-# Load directly
+# Load directly (includes MCP server with OAuth)
 claude --plugin-dir /path/to/this/repo
 
 # Or add as marketplace
@@ -146,6 +161,13 @@ claude --plugin-dir /path/to/this/repo
 
 # Or install from official marketplace (after approval)
 /plugin install audn-redteam@claude-plugins-official
+```
+
+When loaded as a plugin, the MCP server at `mcp.audn.ai` connects via OAuth 2.1 with PKCE and Dynamic Client Registration — no API keys needed. Run `/mcp` to authenticate via browser, then all 34 Audn API tools are available natively.
+
+```bash
+# Or add the MCP server standalone (without plugin)
+claude mcp add --transport http audn-redteam https://mcp.audn.ai/mcp/audn-rn8sx
 ```
 
 ## How It Works

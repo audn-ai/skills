@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "audn-redteam": {
+      "type": "http",
+      "url": "https://mcp.audn.ai/mcp/audn-rn8sx",
+      "oauth": {
+        "authServerMetadataUrl": "https://mcp.audn.ai/.well-known/oauth-authorization-server/mcp/audn-rn8sx"
+      }
+    }
+  }
+}
