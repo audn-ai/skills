@@ -8,32 +8,40 @@ Works with **Claude Code, Cursor, Codex, Windsurf, Cline, Amp**, and [40+ other 
 
 ## Prerequisites
 
-1. **Audn.ai account** — [sign up free](https://audn.ai)
-2. **Authenticate** (choose one):
-
-   **Claude Code (OAuth — recommended):** Authentication is automatic. After installing, run `/mcp` in Claude Code, select `audn-redteam`, and log in via browser. Tokens are stored securely in your system keychain.
-
-   **Other agents (API token):** Generate a token at [audn.ai/dashboard/settings](https://audn.ai/dashboard/settings), then:
-   ```bash
-   export AUDN_API_TOKEN="your-bearer-token"
-   ```
+**Audn.ai account** — [sign up free](https://audn.ai)
 
 ---
 
 ## Quick Start
 
+### 1. Install skills
+
 ```bash
-# Install the red-team skill to Claude Code
-npx skills add audn-ai/skills --skill audn-red -a claude-code
+npx skills add audn-ai/skills --all -a claude-code
 ```
 
-Then in Claude Code:
+### 2. Authenticate (first time only)
+
+In Claude Code, run:
 
 ```
-# Authenticate (first time only — opens browser)
 /audn-login
+```
 
-# Run a red-team audit
+This does two things automatically:
+1. Registers the Audn.ai MCP server (`claude mcp add --transport http audn-redteam https://mcp.audn.ai/mcp/audn-rn8sx`)
+2. Prompts you to run `/mcp` → select `audn-redteam` → authenticate via browser
+
+After login, tokens are stored in your system keychain and refresh automatically. No API keys needed.
+
+**Not using Claude Code?** Generate a token at [audn.ai/dashboard/settings](https://audn.ai/dashboard/settings), then:
+```bash
+export AUDN_API_TOKEN="your-bearer-token"
+```
+
+### 3. Red-team your agent
+
+```
 /audn-red https://api.openai.com/v1/chat/completions
 ```
 
