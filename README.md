@@ -6,6 +6,17 @@ Works with **Claude Code, Cursor, Codex, Windsurf, Cline, Amp**, and [40+ other 
 
 ---
 
+## Prerequisites
+
+1. **Audn.ai account** — [sign up free](https://audn.ai)
+2. **API token** — generate at [audn.ai/dashboard/settings](https://audn.ai/dashboard/settings)
+3. Set your token:
+   ```bash
+   export AUDN_API_TOKEN="your-bearer-token"
+   ```
+
+---
+
 ## Quick Start
 
 ```bash
@@ -96,15 +107,6 @@ List and triage vulnerabilities across all your agents. Severity ratings, catego
 ```
 /audn-vuln-monitor
 ```
-
-## Prerequisites
-
-1. **Audn.ai account** — [sign up free](https://audn.ai)
-2. **API token** — generate at [audn.ai/dashboard/settings](https://audn.ai/dashboard/settings)
-3. Set your token:
-   ```bash
-   export AUDN_API_TOKEN="your-bearer-token"
-   ```
 
 ## What Gets Tested
 
