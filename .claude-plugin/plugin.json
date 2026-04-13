@@ -1,0 +1,25 @@
+{
+  "name": "audn-redteam",
+  "description": "Red-team your AI voice and text agents with automated adversarial campaigns. Jailbreaks, prompt injection, data extraction, social engineering testing — powered by audn.ai.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Audn.ai",
+    "email": "api-support@audn.ai"
+  },
+  "homepage": "https://audn.ai",
+  "repository": "https://github.com/audn-ai/skills",
+  "license": "MIT",
+  "keywords": [
+    "security",
+    "red-team",
+    "adversarial",
+    "voice-ai",
+    "llm-testing",
+    "jailbreak",
+    "prompt-injection",
+    "compliance",
+    "iso-42001",
+    "soc2",
+    "agent-skills"
+  ]
+}

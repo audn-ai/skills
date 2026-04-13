@@ -1,0 +1,22 @@
+{
+  "name": "audn-security-tools",
+  "owner": {
+    "name": "Audn.ai",
+    "email": "api-support@audn.ai"
+  },
+  "metadata": {
+    "description": "Enterprise AI agent red-teaming and security testing tools",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "audn-redteam",
+      "source": "./",
+      "description": "Red-team your AI agents with automated adversarial campaigns — jailbreaks, prompt injection, data extraction, social engineering, compliance reports",
+      "version": "1.0.0",
+      "category": "security",
+      "tags": ["red-team", "adversarial", "llm-security", "voice-ai", "compliance"],
+      "keywords": ["security", "red-team", "adversarial", "jailbreak", "prompt-injection"]
+    }
+  ]
+}
