@@ -28,9 +28,11 @@ In Claude Code, run:
 /audn-login
 ```
 
-This does two things automatically:
-1. Registers the Audn.ai MCP server (`claude mcp add --transport http audn-redteam https://mcp.audn.ai/mcp/audn-rn8sx`)
-2. Prompts you to run `/mcp` → select `audn-redteam` → authenticate via browser
+This registers the Audn.ai MCP server. Then:
+
+1. **Restart Claude Code** — exit with `/exit` or `Ctrl+C`, then run `claude` again (MCP servers load at startup)
+2. Run `/audn-login` again
+3. Run `/mcp` → select `audn-redteam` → click "Authenticate" → log in via browser
 
 After login, tokens are stored in your system keychain and refresh automatically. No API keys needed.
 

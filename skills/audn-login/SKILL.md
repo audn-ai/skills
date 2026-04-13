@@ -26,9 +26,23 @@ claude mcp add --transport http audn-redteam https://mcp.audn.ai/mcp/audn-rn8sx
 
 This adds the Audn.ai MCP server with OAuth 2.1 support. Claude Code will auto-discover the OAuth endpoints at `https://mcp.audn.ai/.well-known/oauth-authorization-server/mcp/audn-rn8sx` and handle Dynamic Client Registration automatically.
 
-## Step 3 — Authenticate
+## Step 3 — IMPORTANT: Restart Claude Code
 
-After registering the MCP server, tell the user:
+After adding the MCP server, the user **MUST restart Claude Code** for it to pick up the new server. MCP servers are only loaded at startup — they cannot be hot-reloaded mid-session.
+
+Tell the user exactly this:
+
+> **The MCP server has been registered. You need to restart Claude Code to activate it.**
+>
+> 1. Exit this session — type `/exit` or press `Ctrl+C`
+> 2. Start Claude Code again: `claude`
+> 3. Run `/audn-login` again to continue authentication
+
+**STOP HERE.** Do not proceed to Step 4 until the user has restarted and re-invoked this skill.
+
+## Step 4 — Authenticate via OAuth
+
+After restarting, the MCP server should now appear in the server list. Tell the user:
 
 > **Run `/mcp` now, select `audn-redteam`, and click "Authenticate".**
 > A browser window will open — log in at auth.audn.ai (or sign up at https://audn.ai if you don't have an account).
@@ -36,7 +50,7 @@ After registering the MCP server, tell the user:
 
 Wait for the user to complete authentication.
 
-## Step 4 — Verify
+## Step 5 — Verify
 
 After the user authenticates, check the MCP server status:
 
